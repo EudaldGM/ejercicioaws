@@ -10,6 +10,12 @@ module "subnet"{
     for_each = local.envs
 }
 
+module "igw"{
+    source = "./network/igw/"
+    vpc_id = modoule.vpc1.vpc_id
+    igw_name = "internet-gateway-1"
+}
+
 #como hago un loop con las instancias relacionandolas con las subnets creadas, y como hago referencia a una id de una subnet creada con un loop?
 module "instance"{
     source = "./instance/"
@@ -18,5 +24,8 @@ module "instance"{
     for_each = local.envs
 }
 
-#todo: añadir nginx a las ec2, crear y vincular un internet gateway, crear nat gateway.
+
+
+
+#todo: añadir nginx a las ec2, crear y vincular un internet gateway, crear nat gateway, rutas y security groups. Crear LB con los target group
 #pregunta: si tengo una config aplicada y muevo las carpetas de sitio y hago terraform init, se crearan nuevos recursos? o el importante es el main.tf?

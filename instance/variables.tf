@@ -7,7 +7,7 @@ variable "instance_type" {
 }
 variable "ami" {
   type = string
-  default = "ubuntu"
+  default = "ami-0a5d9cd4e632d99c1"
 }
 variable "sn_id" {
   type = string
