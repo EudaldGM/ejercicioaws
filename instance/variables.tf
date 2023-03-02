@@ -7,8 +7,11 @@ variable "instance_type" {
 }
 variable "ami" {
   type = string
-  default = "ami-0a5d9cd4e632d99c1"
+  default = "ami-0c0933ae5caf0f5f9"
 }
 variable "sn_id" {
+  type = string
+}
+variable "sg_id" {
   type = string
 }
